@@ -15,14 +15,3 @@ def create_feedinfo():
   file.write("Javnik,,pl,,,0.01-prealpha")
   file.close()
   print("Stworzono plik feed_info.txt")
-
-def make_gtfs_zip():
-  from zipfile import all
-
-  zip = ZipFile("gtfs.zip", 'w')
-  #files = ["agency.txt", "stops.txt", "routes.txt", "trips.txt", "stops_times.txt", "calendar.txt", "feed_info.txt"]
-  files = ["agency.txt", "feed_info.txt"]
-  for file in files:
-    zip.write(zip, file)
-
-  zip.close()
