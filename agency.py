@@ -12,6 +12,6 @@ def create_feedinfo():
   header = "feed_publisher_name,feed_publisher_url,feed_lang,feed_start_date,feed_end_date,feed_version"
   file.write(header)
   file.write('\n')
-  file.write("Javnik,,pl,,,0.01-prealpha")
+  file.write("Javnik,https://github.com/javnik36/ZTMtoGTFS,pl,,,0.02-prealpha")
   file.close()
   print("Stworzono plik feed_info.txt")
