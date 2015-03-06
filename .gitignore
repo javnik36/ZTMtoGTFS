@@ -6,4 +6,4 @@ osm_data.json
 *.txt
 parstest.py
 *.png
-gtfs.zip
+*.zip

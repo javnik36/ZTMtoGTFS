@@ -3,7 +3,7 @@ import time
 
 time.clock()
 
-file = open("RA141219.txt", 'r', encoding="utf-8")
+file = open("RA150306.txt", 'r')
 save_route = open("routes.txt", 'w', encoding="utf-8")
 save_trips = open("trips.txt", 'w', encoding="utf-8")
 save_times = open("stop_times.txt", 'w', encoding="utf-8")
@@ -78,6 +78,7 @@ for line in file:
 
     if linia != None:
       nr_linii = linia.group(1).rstrip().lstrip()
+      #via gtfs doc: 0-tram, 2-train, 3-bus
       if (nr_linii.isnumeric() and len(nr_linii) < 3) or nr_linii == 'T':
         route_type = "0"
       elif nr_linii.isnumeric() and len(nr_linii) == 3:
@@ -87,7 +88,6 @@ for line in file:
       elif nr_linii.startswith("KM") or nr_linii.startswith("S") or nr_linii == "WKD":
         route_type = "2"
       else:
-        #raise ValueError
         print("Nie rozpoznałem linii nr: " + nr_linii)
 
       #RUTE-ID,,NR-LiNII,,,TYPE,URL,,
@@ -96,6 +96,7 @@ for line in file:
       save_route.write(route_id + koma*2 + nr_linii + koma*3 + route_type + koma + url + koma*2 + '\n')
 
     if inWK == True:
+      #bez P-godz. odjzdu, z P-godz. przyjazdu
       tekst_sam = re.compile("(.{17})\s+(\d{6})\s(\w{2})\s+(\d+\.\d+)")
       tekst_zP = re.compile("(.{17})\s+(\d{6})\s(\w{2})\s+(\d+\.\d+)\s+\P")
       macz_sam = tekst_sam.match(line)

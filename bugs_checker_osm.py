@@ -1,6 +1,6 @@
 import re
 
-osm = open("stops-osm.txt", 'r', encoding="utf-8")
+osm = open("stops.txt", 'r', encoding="utf-8")
 bugs = open("BAD-STOPS.txt", 'r', encoding="utf-8")
 still = open("BUGS-NOT-IN-OSM.txt", 'w')
 
