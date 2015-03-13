@@ -7,3 +7,4 @@ osm_data.json
 parstest.py
 *.png
 *.zip
+*.7z
