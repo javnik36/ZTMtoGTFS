@@ -5,6 +5,7 @@ osm_data.json
 *.html
 *.txt
 parstest.py
+route_copy.py
 *.png
 *.zip
 *.7z
